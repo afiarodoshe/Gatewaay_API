@@ -59,7 +59,7 @@ func AddTeacher(c echo.Context) error {
 		} else if result.InsertedID == 0 {
 			returnMessage = "Something went wrong! \nteacher addition Unsuccessful :("
 		} else {
-			returnMessage = "teacher: " + teacher.FullName + " added successfully to database :)"
+			returnMessage =  "teacher: " + teacher.FullName + " added successfully to database :)"
 		}
 		return c.String(http.StatusCreated, returnMessage)
 	}
