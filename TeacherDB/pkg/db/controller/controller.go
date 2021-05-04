@@ -40,13 +40,13 @@ func AddTeacher(c echo.Context) error {
 
 	collection := config.GetTeachersCollection()
 
-	var student1 bson.M
+	var teacher1 bson.M
 	collection.FindOne(
 		context.TODO(),
 		bson.M{"email": teacher.Email},
-	).Decode(&student1)
-	fmt.Println(student1["email"])
-	if len(student1) > 0 {
+	).Decode(&teacher1)
+	fmt.Println(teacher1["email"])
+	if len(teacher1) > 0 {
 		return c.JSON(http.StatusOK, "Email address taken\n Use another :(")
 	} else {
 		result, err := collection.InsertOne(context.TODO(), teacher)
